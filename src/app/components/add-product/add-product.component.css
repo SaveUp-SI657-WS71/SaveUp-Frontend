@@ -1,0 +1,80 @@
+.formulario {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 15px;
+    padding-bottom: 10px;
+  }
+  
+  .formulario .dates {
+    justify-self: center;
+    text-align: center;
+    background-color: #201f34;
+    color: white;
+    border-radius: 50px;
+    padding: 20px;
+  }
+  
+  .formulario .dates img {
+    padding-bottom: 20px;
+  }
+  
+  .formulario .dates .product-price-stock {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  
+  .formulario .dates .product-price-stock .price {
+    margin-right: 20px;
+    flex: 1 1 200px;
+  }
+  
+  .formulario .dates .product-price-stock mat-form-field {
+    width: 100%;
+  }
+  
+  .formulario .dates mat-form-field {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  
+  .formulario .dates .button button {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: #E95D5D;
+    color: #201f34;
+  }
+  
+  @media (min-width: 768px) {
+    .formulario {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      padding: 30px;
+    }
+  
+    .formulario .dates {
+      padding: 30px;
+    }
+  
+    .formulario .dates .product-price-stock .price {
+      margin-right: 50px;
+    }
+  }
+  
+  @media (min-width: 1200px) {
+    .formulario {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+  
+    .formulario .dates {
+      padding: 50px;
+    }
+  
+    .formulario .dates .product-price-stock .price {
+      margin-right: 50px;
+    }
+  }
+  

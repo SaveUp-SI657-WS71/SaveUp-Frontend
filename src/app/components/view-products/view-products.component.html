@@ -1,0 +1,40 @@
+<app-toolbar-session></app-toolbar-session>
+
+<div class="search-container" style="margin-top: 20px;">
+    <mat-form-field>
+      <input matInput placeholder="Buscar" [(ngModel)]="searchText" (keydown.enter)="search()">
+      <button matSuffix mat-icon-button aria-label="Buscar" (click)="search()">
+        <mat-icon>search</mat-icon>
+      </button>
+    </mat-form-field>
+  </div>
+
+  <div class="product-container">
+    <mat-card class="example-card" *ngFor="let product of filteredProducts.length ? filteredProducts : products">
+        <mat-card-header>
+        <mat-card-title-group>
+          <img mat-card-lg-image src={{product.image}}>
+        </mat-card-title-group>
+      </mat-card-header>
+      <mat-card-content>
+        <p>{{ product.name }}</p>
+        <p>Descripcion: {{ product.description }}</p>
+        <p>Fecha: {{ product.expirationDate }}</p>
+        <p>Precio: {{ product.price }}</p>
+        <p>Stock: {{ product.stock }}</p>
+      </mat-card-content>
+      <mat-card-actions class="center">
+        <button mat-icon-button color="primary" aria-label="Visulizar producto" (click)="viewProduct(product)">
+          <mat-icon> remove_red_eye </mat-icon>
+        </button>
+      </mat-card-actions>
+    </mat-card>
+</div>
+
+<div class="container">
+    <button mat-fab extended color="accent" routerLink="/add/product">
+        <mat-icon>add</mat-icon>
+        Agregar producto
+    </button>
+</div>
+  

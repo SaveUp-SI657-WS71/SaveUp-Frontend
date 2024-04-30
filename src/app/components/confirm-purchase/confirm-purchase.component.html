@@ -1,0 +1,73 @@
+<app-toolbar-session></app-toolbar-session>
+
+  <main class="recover-password">
+    <mat-card >
+      <h1 style=" font-weight: bold;">Confirmar Compra</h1>
+      <form>
+        <p style="color: white">
+          <mat-form-field appearance="outline">
+            <mat-label style="color: white">Nombre</mat-label>
+            <input matInput placeholder="Placeholder"  style="color: white" [formControl]="nombre">
+            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+            <mat-hint>Requerido</mat-hint>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label style="color: white">Apellido</mat-label>
+            <input matInput placeholder="Placeholder" style="color: white" [formControl]="apellido">
+            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+            <mat-hint>Requerido</mat-hint>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label style="color: white">Direccion</mat-label>
+            <input matInput placeholder="Placeholder"  style="color: white" [formControl]="direccion">
+            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+            <mat-hint>Requerido</mat-hint>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label style="color: white">Departamento</mat-label>
+            <input matInput placeholder="Placeholder"  style="color: white" [formControl]="departamento">
+            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+            <mat-hint>Requerido</mat-hint>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label style="color: white">Distrito</mat-label>
+            <input matInput placeholder="Placeholder"  style="color: white" [formControl]="distrito">
+            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+            <mat-hint>Requerido</mat-hint>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label style="color: white">Número celular</mat-label>
+            <input matInput placeholder="Placeholder"   style="color: white" [formControl]="telefono">
+            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+            <mat-hint>Requerido</mat-hint>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label style="color: white">Número Tarjeta</mat-label>
+            <input matInput placeholder="Placeholder" style="color: white" [formControl]="tarjeta">
+            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+            <mat-hint>Requerido</mat-hint>
+          </mat-form-field>
+        </p>
+      </form>
+
+      <button mat-button style="background-color: #E95D5D;font-weight: bold" (click)="onSubmit()">Aceptar Compra</button>
+    
+    </mat-card>
+    
+      
+  </main>
+ 
+
+  
+  
+  
+  
+  
+  
+  

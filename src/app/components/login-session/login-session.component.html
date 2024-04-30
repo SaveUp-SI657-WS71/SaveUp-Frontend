@@ -1,0 +1,72 @@
+<header>
+    <mat-toolbar color="primary" style="background-color: #67C5C8;">
+      <span style="color: black; font-weight: bold;">
+        <a routerLink="/" style="color: black; text-decoration: none;">SaveUp</a>
+      </span>
+      </mat-toolbar>
+</header>
+
+  <main class="recover-password">
+    
+    <mat-card >
+      <form [formGroup]="validateForm">
+        <p style="color: white">
+          <mat-form-field appearance="outline">
+            <mat-label style="color: white">Usuario</mat-label>
+            <input matInput placeholder="Placeholder" style="color: white" formControlName="email" >
+            <mat-icon matSuffix >sentiment_very_satisfied</mat-icon>
+            <mat-hint>Requerido</mat-hint>
+          </mat-form-field>
+    
+          <mat-form-field appearance="outline">
+            <mat-label style="color: white">Contraseña</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'" placeholder="Placeholder" style="color: white" formControlName="password" >
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>            
+            <mat-hint>Requerido</mat-hint>
+          </mat-form-field>
+        </p>
+      </form>
+
+        <a class="recuperarcontraseña"  routerLink="/recover/password" style="color: black; font-weight: bold;">¿Olvidaste tu contraseña?</a>
+  
+        <button mat-button style="background-color: #E95D5D; max-width: 300px;font-size: 15px;font-weight: bold" (click)="login()">Ingresar</button>
+        <a class="registrarse"  routerLink="/check/in" style="color: black; font-weight: bold;">¿No tienes una cuenta? ¡Regístrate ahora!</a>
+        <hr class="mi-linea">
+        <a class="registrarseempresa"  routerLink="/check/company" style="color: black; font-weight: bold;">¿Eres una empresa? Da click aquí </a>
+  
+     
+    </mat-card>
+    
+      
+  </main>
+ 
+
+  
+  
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h3 class="follow-us-heading">Síguenos</h3>        
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <ul class="social-icons">
+
+            <li><a href="https://www.facebook.com/SaveUp-115507438200954" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+            <li><a href="https://www.linkedin.com/in/saveup-749291275/?trk=public-profile-join-page" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+  
+  
+  
+  
+  
+  

@@ -1,0 +1,11 @@
+<app-toolbar-session [ngClass]="{'disabled': toolbarDisabled}"></app-toolbar-session>
+
+<div class="container">
+    <div class="message-box">
+        <p style="color: white;">Guardado correctamente</p>
+        <img src="assets/images/confirmatioEditProfile.png" alt="compra" class="card-image">
+        <br>
+        <button style="background-color: #E95D5D;" (click)="logout()">SI</button>
+        <button style="background-color: #E95D5D;" (click)="cancelar()">NO</button>
+    </div>
+</div>

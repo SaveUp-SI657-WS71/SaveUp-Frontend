@@ -1,0 +1,24 @@
+<app-toolbar-session></app-toolbar-session>
+
+<div class="product-container">
+    <mat-card class="example-card" *ngFor="let cards of cards">
+        <mat-card-header>
+            <mat-card-title-group>
+                <mat-card-title>{{ cards.cardName }}</mat-card-title>
+            </mat-card-title-group>
+        </mat-card-header>
+        <mat-card-content>
+            <p>Numero de Tarjeta: {{ cards.cardNumber }}</p>
+            <p>Banco: {{ cards.type.toUpperCase() }}</p>
+        </mat-card-content>
+        <mat-card-actions class="center">
+                <mat-icon>credit_card</mat-icon>
+        </mat-card-actions>
+    </mat-card>
+</div>
+
+<div class="right" style="display: flex; justify-content: center;" routerLink="/add/card">
+    <button mat-fab extended >
+        Agregar Card
+    </button>
+</div>

@@ -1,0 +1,37 @@
+<app-toolbar-session></app-toolbar-session>
+
+<div class="chat-container">
+    <mat-card class="message-container">
+      <mat-list>
+        <mat-list-item *ngFor="let message of messages">
+        <div class="message-wrapper" [ngClass]="{'user-message-wrapper': message.sender === 'user', 'bot-message-wrapper': message.sender === 'bot'}">
+            <div class="message-sender" *ngIf="message.sender === 'user'">You:</div>
+            <div class="message-sender" *ngIf="message.sender === 'bot'">Bot:</div>
+            <div class="message-content" [ngClass]="{'user-message': message.sender === 'user', 'bot-message': message.sender === 'bot'}">
+                {{ message.content }}
+            </div>
+        </div>
+        </mat-list-item>
+      </mat-list>
+    </mat-card>
+  
+    <div class="input-card">
+      <mat-divider></mat-divider>
+    </div>
+  
+    <mat-card class="input-card">
+      <div class="input-container">
+        <mat-form-field class="input-field">
+          <input
+            matInput
+            placeholder="Type a message"
+            [(ngModel)]="newMessage"
+            (keydown.enter)="sendMessage()"
+          />
+        </mat-form-field>
+        <button mat-icon-button class="send-button" (click)="sendMessage()">
+          <mat-icon>send</mat-icon>
+        </button>
+      </div>
+    </mat-card>
+</div>

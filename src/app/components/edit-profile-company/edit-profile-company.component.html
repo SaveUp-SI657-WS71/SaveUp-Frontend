@@ -1,0 +1,67 @@
+<app-toolbar-session></app-toolbar-session>
+
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    <div class="formulario">
+
+        <div class="dates">
+            <div class="avatar">
+                <img src="assets/images/updatePhoto.png" alt="" style="height: 100px;width: 100px;">
+            </div>  
+            <div class="names">
+                <mat-form-field>
+                    <mat-label>Nombres</mat-label>
+                    <input matInput type="string" placeholder="Nombre" formControlName="nombre" />
+                </mat-form-field>
+
+                <mat-form-field>
+                    <mat-label>RUC</mat-label>
+                    <input matInput type="string" placeholder="RUC" formControlName="ruc" />
+                </mat-form-field>
+            </div>
+
+            <mat-form-field appearance="fill" class="correo">
+                <mat-label> Direccion </mat-label>
+                <input matInput placeholder="Direccion" formControlName="direccion" />
+            </mat-form-field>
+
+            <div class="direccion">
+                <mat-form-field>
+                    <mat-label>Departamento</mat-label>
+                    <input matInput type="string" placeholder="Departamento" formControlName="departamento" />
+                </mat-form-field>
+
+                <mat-form-field>
+                    <mat-label>Distrito</mat-label>
+                    <input matInput type="string" placeholder="Distrito" formControlName="distrito" />
+                </mat-form-field>
+            </div>
+            <mat-form-field class="telefono">
+                <mat-label>Numero celular</mat-label>
+                <input matInput type="string" placeholder="Celular" formControlName="celular" />
+            </mat-form-field>
+
+            <mat-form-field class="password">
+                <mat-label>Enter your password</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+                <button mat-icon-button type="button" matSuffix (click)="hide = !hide"
+                    [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+            </mat-form-field>
+        </div>
+        
+        <div class="buttons">
+            <div class="left">
+                <button mat-fab extended (click)="clickCancel()">Cancel</button>
+                    
+            </div>
+            
+            <div class="right">
+                <button mat-fab extended (click)="confirm()">
+                    Save
+                </button>
+            </div>
+        </div>
+    </div>
+
+</form>

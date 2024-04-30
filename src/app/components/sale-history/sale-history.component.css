@@ -1,0 +1,51 @@
+.purchase-history {
+    width: 100%;
+    position: absolute; 
+    top: 80px;
+    overflow-x: auto; /* Agrega desplazamiento horizontal */
+}
+
+.tabla-estilo td {
+    background-color: #E95D5D;
+    color: #000000;
+    border-color: #000000;
+    white-space: nowrap; /* Evita el ajuste de línea en celdas de la tabla */
+}
+
+.tabla-estilo th {
+    background-color: #201F34;
+    color: white;
+    white-space: nowrap; /* Evita el ajuste de línea en encabezados de columna */
+}
+
+@media screen and (max-width: 400px) {
+    .tabla-estilo {
+        width: 100%;
+    }
+  
+    .tabla-estilo th,
+    .tabla-estilo td {
+        display: block;
+        text-align: left;
+    }
+  
+    .tabla-estilo th {
+        background-color: #201F34;
+        color: white;
+        padding: 10px;
+    }
+  
+    .tabla-estilo td {
+        background-color: #E95D5D;
+        color: #000000;
+        border: none;
+        border-bottom: 1px solid #ddd;
+        padding: 10px;
+    }
+  
+    .tabla-estilo td:before {
+        content: attr(data-label);
+        float: left;
+        font-weight: bold;
+    }
+}

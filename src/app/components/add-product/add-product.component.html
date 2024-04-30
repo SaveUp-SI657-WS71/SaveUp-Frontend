@@ -1,0 +1,58 @@
+<app-toolbar-session [ngClass]="{'disabled': toolbarDisabled}"></app-toolbar-session>
+
+<div class="formulario">
+    <div class="dates">
+        <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+            <div>
+                <a routerLink="/add/product">
+                  <img id="productImage" src="/assets/images/addProduct.png" aria-label="Logo app" width="100" height="80" (click)="openFileSelector()">
+                </a>
+                
+                <input id="fileSelector" type="file" style="display: none" (change)="loadImage($event)">
+                
+                <p>{{ getImageName() }}</p>
+            </div>
+              
+           
+            <div>
+                <p>Nombre del producto</p>
+                <mat-form-field>
+                    <input matInput type="string" formControlName="name" />
+                </mat-form-field>
+            </div>
+            <div>
+                <p>Descripcion del producto </p>
+                <mat-form-field>
+                    <input matInput type="string" formControlName="descripcion" />
+                </mat-form-field>
+            </div>
+            <div class="product-price-stock">
+                <div class="price">
+                    <p>Precio</p>
+                    <mat-form-field>
+                        <input matInput type="double" formControlName="precio" />
+                    </mat-form-field>
+                </div>
+                <div class="stock">
+                    <p>Stock</p>
+                    <mat-form-field>
+                        <input matInput type="int" formControlName="stock" />
+                    </mat-form-field>
+                </div>
+
+            </div>
+            <div>
+                <p>Fecha de vencimiento (AAAA-MM-DD)</p>
+                <mat-form-field>
+                       <input matInput type="string" formControlName="vencimiento" />
+                </mat-form-field>
+            </div>
+
+            <div class="button">
+                <button mat-fab extended (click)="onSubmit()" routerLink="/view/products">
+                    Publicar
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

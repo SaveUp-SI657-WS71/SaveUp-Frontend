@@ -1,0 +1,59 @@
+.disabled {
+    pointer-events: none;
+    opacity: 0.6;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .message-box {
+    background-color: #201F34;
+    padding: 70px;
+    text-align: center;
+    border-radius: 20px;
+  }
+  
+  .message-box p {
+    margin-bottom: 10px;
+    font-size: 40px;
+  }
+  
+  .message-box button {
+    margin-right: 10px;
+    font-size: 30px;
+    width: 150px;
+  }
+  
+  @media (max-width: 900px) {
+    .message-box {
+      padding: 30px;
+    }
+  
+    .message-box p {
+      font-size: 24px;
+    }
+  
+    .message-box button {
+      font-size: 20px;
+      width: 120px;
+    }
+  }
+
+  .card-image {
+    width: 100%; /* Hace la imagen ocupar todo el ancho disponible */
+    max-width: 200px; /* Establece un ancho máximo para evitar que la imagen se estire demasiado en pantallas grandes */
+    height: auto; /* Ajusta la altura de la imagen automáticamente */
+    display: inline-block; /* Permite que las imágenes se muestren en línea y se centren horizontalmente */
+    margin: 10px; /* Añade un margen alrededor de las imágenes para separarlas */
+  }
+  
+  @media (min-width: 768px) {
+    .card-image {
+      max-width: 150px; /* Reduce el ancho máximo de las imágenes en pantallas más grandes */
+    }
+  }
+  

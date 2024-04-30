@@ -1,0 +1,52 @@
+<app-toolbar-session></app-toolbar-session>
+
+<section class="carrito">
+  <div class="left">
+    <div class="my-point">
+      <h2>Numero de puntos: {{availablePoints}}</h2>
+    </div>
+    <div class="my-products">
+      <mat-card class="example-card" *ngFor="let products of products">
+        <mat-card-content class="example-card-content">
+          <div class="image-product">
+            <img mat-card-lg-image src="https://material.angular.io/assets/img/examples/shiba2.jpg">
+          </div>
+          <div class="description-product">
+            <h2>{{ products.name }}</h2>
+            <p> Descripcion: {{ products.description }}</p>
+            <p> Fecha de vencimiento: {{ products.expiration_date }}</p>
+            <p> Costo: S/.{{ products.price }} </p>
+          </div>
+        </mat-card-content>
+          <mat-card-actions class="example-card-actions">
+            <div>
+              <button mat-raised-button color="warn" (click)="removeProduct(products)">Eliminar</button>
+            </div>
+          </mat-card-actions>
+      </mat-card>
+    </div>
+
+  </div>
+  <div class="right">
+    <mat-card class="example-card">
+      <mat-card-header>
+        <mat-card-title>Resumen de la orden</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <h2> Cantidad de productos: {{nProducts}} </h2>
+        <h2> Total: {{ totalSum }} </h2>
+        <h2 *ngIf="showDiscountedTotal">Total con descuento: {{ totalWithDiscount }}</h2>
+        <div>
+          <button mat-fab extended color="primary" (click)="redeemPoints()">
+          Canjear puntos
+          </button>
+          <button mat-fab extended color="primary" (click)="pay()">
+          Pagar
+          </button>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+  </div>
+
+</section>

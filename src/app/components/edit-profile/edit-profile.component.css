@@ -1,0 +1,42 @@
+.formulario {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+.formulario .buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding-bottom: 1rem;
+}
+.formulario .buttons .left, .formulario .buttons .right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.formulario .buttons .left button, .formulario .buttons .right button {
+    background-color: #e95d5d;
+}
+.formulario .dates {
+    justify-self: center;
+    align-self: center;
+    margin-bottom: 1rem;
+    background-color: #201f34;
+    color: white;
+    border-radius: 10px;
+    margin-top: 30px;
+    padding: 5px;
+}
+.formulario .dates mat-form-field {
+    margin: 10px;
+}
+.formulario .dates .correo, .formulario .dates .telefono, .formulario .dates .password {
+    display: flex;
+    justify-content: center;
+    width: 445px;
+    color: #201f34;
+}
+.formulario .dates .avatar {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}

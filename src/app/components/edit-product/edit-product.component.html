@@ -1,0 +1,50 @@
+<app-toolbar-session [ngClass]="{'disabled': toolbarDisabled}"></app-toolbar-session>
+
+<div class="formulario">
+    <div class="dates">
+        <form [formGroup]="productForm" (ngSubmit)="onSubmit()">           
+            <div>
+                <p>Nombre del producto</p>
+                <mat-form-field>
+                    <input matInput type="string" formControlName="name" />
+                </mat-form-field>
+            </div>
+            <div>
+                <p>Descripcion del producto </p>
+                <mat-form-field>
+                    <input matInput type="string" formControlName="descripcion" />
+                </mat-form-field>
+            </div>
+            <div class="product-price-stock">
+                <div class="price">
+                    <p>Precio</p>
+                    <mat-form-field>
+                        <input matInput type="string" formControlName="precio" />
+                    </mat-form-field>
+                </div>
+                <div class="stock">
+                    <p>Stock</p>
+                    <mat-form-field>
+                        <input matInput type="string" formControlName="stock" />
+                    </mat-form-field>
+                </div>
+
+            </div>
+            <div>
+                <p>Fecha de vencimiento (AAAA-MM-DD)</p>
+                <mat-form-field>
+                       <input matInput type="string" formControlName="vencimiento" />
+                </mat-form-field>
+            </div>
+
+            <div class="button-container">
+                <button mat-fab extended (click)="cancelEdit()">
+                  Eliminar
+                </button>
+                <button mat-fab extended (click)="updateProductView()">
+                  Guardar
+                </button>
+              </div>
+        </form>
+    </div>
+</div>

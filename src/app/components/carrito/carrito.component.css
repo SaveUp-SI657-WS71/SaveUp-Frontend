@@ -1,0 +1,68 @@
+.carrito {
+  display: flex;
+  flex-wrap: wrap;
+}
+.carrito .left {
+  flex: 3;
+}
+.carrito .left .my-point {
+  margin-left: 3rem;
+  margin-top: 1rem;
+}
+.carrito .left .my-products {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 10px;
+}
+.carrito .left .my-products .example-card {
+  width: auto;
+  height: auto;
+  padding: 10px;
+  margin: 10px;
+}
+.carrito .left .my-products .example-card .example-card-content {
+  display: flex;
+  align-items: center;
+}
+.carrito .left .my-products .example-card .example-card-content .image-product {
+  margin-right: 2rem;
+}
+.carrito .left .my-products .example-card .example-card-content .description-product h2 {
+  font-size: 25px;
+}
+.carrito .left .my-products .example-card .example-card-content .description-product p {
+  font-size: 18px;
+}
+.carrito .left .my-products .example-card .example-card-actions {
+  position: relative;
+}
+.carrito .left .my-products .example-card .example-card-actions div {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}
+.carrito .right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  align-items: baseline;
+}
+.carrito .right .example-card mat-card-header {
+  margin: 1rem;
+}
+.carrito .right .example-card mat-card-content div button {
+  margin: 10px;
+}
+@media (max-width: 800px) {
+  .carrito {
+    display: grid;
+    grid-template-columns: 1fr;
+ }
+}
+@media (max-width: 500px) {
+  .example-card-content {
+    display: grid;
+    grid-template-columns: 1fr;
+ }
+}
