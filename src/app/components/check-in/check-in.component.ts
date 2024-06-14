@@ -52,9 +52,11 @@ export class CheckInComponent {
       repeatPassword: confirmPasswordValue,
       points:points,
     };
+    console.log(user)
     
     this.userService.createCustomer(user).subscribe(
-      (res) => {
+      (res: any) => {
+        console.log('Cliente creado correctamente');
         this.authService.setUser(res);
       }
     );
