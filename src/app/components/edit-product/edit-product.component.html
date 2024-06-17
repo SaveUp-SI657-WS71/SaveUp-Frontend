@@ -2,7 +2,20 @@
 
 <div class="formulario">
     <div class="dates">
-        <form [formGroup]="productForm" (ngSubmit)="onSubmit()">           
+        <form [formGroup]="productForm" (ngSubmit)="onSubmit()">     
+                
+            <div>
+                <img id="productImage" src="/assets/images/addProduct.png" aria-label="Logo app" width="100" height="80" >
+                <div>
+                  <p>URL de la imagen</p>
+                  <mat-form-field>
+                    <input matInput type="string" formControlName="imagen" />
+                  </mat-form-field>
+                </div>
+              </div>
+              
+
+
             <div>
                 <p>Nombre del producto</p>
                 <mat-form-field>
@@ -31,7 +44,7 @@
 
             </div>
             <div>
-                <p>Fecha de vencimiento (AAAA-MM-DD)</p>
+                <p>Fecha de vencimiento (DD-MM-AAAA)</p>
                 <mat-form-field>
                        <input matInput type="string" formControlName="vencimiento" />
                 </mat-form-field>
@@ -41,7 +54,7 @@
                 <button mat-fab extended (click)="cancelEdit()">
                   Eliminar
                 </button>
-                <button mat-fab extended (click)="updateProductView()">
+                <button mat-fab extended >
                   Guardar
                 </button>
               </div>

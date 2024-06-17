@@ -10,6 +10,8 @@ import { AuthService } from './auth-service/auth.service';
 export class UserService {
   base_Url:string=environment.baseURL;
 
+  base_Url_User_Service:string=environment.baseURLUserService;
+
   constructor(private http: HttpClient, private authService: AuthService) { }
 
   httpOptions = {
@@ -35,25 +37,25 @@ export class UserService {
 
   getCustomers(): Observable<any> {
     return this.http
-      .get(`${this.base_Url}/customers`)
+      .get(`${this.base_Url_User_Service}/customers`)
       .pipe(retry(2), catchError(this.handleError));
   }
 
   createCustomer(item: any) {
     return this.http
-      .post(`${this.base_Url}/customers`, JSON.stringify(item), this.httpOptions)
+      .post(`${this.base_Url_User_Service}/customers`, JSON.stringify(item), this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
 
   getCompanies(): Observable<any> {
     return this.http
-      .get(`${this.base_Url}/companies`)
+      .get(`${this.base_Url_User_Service}/companies`)
       .pipe(retry(2), catchError(this.handleError));
   }
 
   createCompany(item: any) {
     return this.http
-      .post(`${this.base_Url}/companies`, JSON.stringify(item), this.httpOptions)
+      .post(`${this.base_Url_User_Service}/companies`, JSON.stringify(item), this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
 
@@ -63,7 +65,7 @@ export class UserService {
       password: password
     };
   
-    return this.http.post(`${this.base_Url}/customers/login`, body, this.httpOptions)
+    return this.http.post(`${this.base_Url_User_Service}/customers/login`, body, this.httpOptions)
       .pipe(catchError(this.handleError));
   }
 
@@ -73,7 +75,7 @@ export class UserService {
       password: password
     };
   
-    return this.http.post(`${this.base_Url}/companies/login`, body, this.httpOptions)
+    return this.http.post(`${this.base_Url_User_Service}/companies/login`, body, this.httpOptions)
       .pipe(catchError(this.handleError));
   }
 
@@ -82,7 +84,7 @@ export class UserService {
       email: email
     };
 
-    return this.http.post(`${this.base_Url}/customers/recover`, body, this.httpOptions)
+    return this.http.post(`${this.base_Url_User_Service}/customers/recover`, body, this.httpOptions)
       .pipe(catchError(this.handleError));
   }
 
@@ -91,21 +93,21 @@ export class UserService {
       email: email
     };
 
-    return this.http.post(`${this.base_Url}/companies/recover`, body, this.httpOptions)
+    return this.http.post(`${this.base_Url_User_Service}/companies/recover`, body, this.httpOptions)
       .pipe(catchError(this.handleError));
   }
 
   updateCustomer(item: any) {
     const user = this.authService.getUser();
 
-    return this.http.put(`${this.base_Url}/customers/${user?.id}`, item, this.httpOptions)
+    return this.http.put(`${this.base_Url_User_Service}/customers/${user?.id}`, item, this.httpOptions)
     .pipe(retry(2), catchError(this.handleError));
   }
 
   updateCompany(item: any) {
     const user = this.authService.getUser();
 
-    return this.http.put(`${this.base_Url}/companies/${user?.id}`, item, this.httpOptions)
+    return this.http.put(`${this.base_Url_User_Service}/companies/${user?.id}`, item, this.httpOptions)
     .pipe(retry(2), catchError(this.handleError));
   }
 

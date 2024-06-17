@@ -4,16 +4,14 @@
     <div class="dates">
         <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
             <div>
-                <a routerLink="/add/product">
-                  <img id="productImage" src="/assets/images/addProduct.png" aria-label="Logo app" width="100" height="80" (click)="openFileSelector()">
-                </a>
-                
-                <input id="fileSelector" type="file" style="display: none" (change)="loadImage($event)">
-                
-                <p>{{ getImageName() }}</p>
-            </div>
-              
-           
+                <img id="productImage" src="/assets/images/addProduct.png" aria-label="Logo app" width="100" height="80" >
+                <div>
+                  <p>URL de la imagen</p>
+                  <mat-form-field>
+                    <input matInput type="string" formControlName="imagen" />
+                  </mat-form-field>
+                </div>
+              </div>
             <div>
                 <p>Nombre del producto</p>
                 <mat-form-field>
@@ -42,7 +40,7 @@
 
             </div>
             <div>
-                <p>Fecha de vencimiento (AAAA-MM-DD)</p>
+                <p>Fecha de vencimiento (DD-MM-AAAA)</p>
                 <mat-form-field>
                        <input matInput type="string" formControlName="vencimiento" />
                 </mat-form-field>
