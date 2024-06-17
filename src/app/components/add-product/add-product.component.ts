@@ -31,6 +31,8 @@ export class AddProductComponent {
 
   ngOnInit(): void {
     this.generateReactiveForm();
+    this.listenForUrlChanges(); // Agregar esta línea para escuchar cambios en el campo de la URL
+
   }
 
   generateReactiveForm(): void {
@@ -44,38 +46,26 @@ export class AddProductComponent {
     });
   }
 
-  openFileSelector(): void {
-    document.getElementById('fileSelector')?.click();
-  }
 
-  loadImage(event: any): void {
-    const reader = new FileReader();
-    reader.onload = () => {
-      this.imageSelected = reader.result;
+  listenForUrlChanges(): void {
+    this.productForm.get('imagen')?.valueChanges.subscribe((url: string) => {
       const productImage = document.getElementById('productImage') as HTMLImageElement;
       if (productImage) {
-        productImage.src = this.imageSelected;
+        if (this.isValidImageUrl(url)) {
+          productImage.src = url; // Si la URL es válida, cargar la imagen desde la URL
+        } else {
+          productImage.src = '/assets/images/addProduct.png'; // Si la URL es inválida, volver a la imagen predeterminada
+        }
       }
-    };
-    reader.readAsDataURL(event.target.files[0]);
-    
-    this.imageName = event.target.files[0].name;
-
-    this.convertImageToBase64(event.target.files[0]);
-  }
-
-  convertImageToBase64(file: File): void {
-    const reader = new FileReader();
-    reader.onloadend = () => {
-      this.base64String = reader.result as string;
-      this.imageSelected = this.base64String;
-    };
-    reader.readAsDataURL(file);
+    });
   }
   
-  getImageName(): string {
-    return this.imageName;
+  isValidImageUrl(url: string): boolean {
+    // Verificar si la URL es una URL válida de imagen (puedes usar expresiones regulares u otros métodos)
+    // Aquí proporciono un ejemplo simple para verificar si la URL termina con .jpg o .png
+    return url.toLowerCase().match(/\.(jpeg|jpg|png|gif)$/) != null;
   }
+
 
   onSubmit() {
     // Guardar la imagen en la base de datos
@@ -89,14 +79,14 @@ export class AddProductComponent {
     const valuePrice = this.productForm.value.precio;
     const valueStock = this.productForm.value.stock;
     const valueVencimiento = this.productForm.value.vencimiento;
-  
+    const valueImagen = this.productForm.value.imagen;
     const requestPayload: any = {
       name: valueName,
       description: valueDescripcion,
       price: parseFloat(valuePrice),
       stock: parseInt(valueStock),
       expirationDate: valueVencimiento,
-      image: this.base64String,
+      image: valueImagen,
       companyId: this.companySession?.id
     };
   

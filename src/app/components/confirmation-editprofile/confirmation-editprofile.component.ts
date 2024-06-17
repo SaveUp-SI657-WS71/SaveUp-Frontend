@@ -23,7 +23,5 @@ export class ConfirmationEditprofileComponent {
     }
   }
 
-  cancelar() {
-    this.location.back();
-  }
+ 
 }

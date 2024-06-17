@@ -10,6 +10,8 @@ import { AuthService } from './auth-service/auth.service';
 export class ProductService {
   base_Url:string=environment.baseURL;
 
+  base_Url_Product_Service:string=environment.baseURLProductService;
+
   constructor( private http: HttpClient, private authService: AuthService) { }
 
   httpOptions = {
@@ -35,13 +37,13 @@ export class ProductService {
 
   getAllProducts(): Observable<any> {
     return this.http
-      .get(`${this.base_Url}/products`)
+      .get(`${this.base_Url_Product_Service}/products`)
       .pipe(retry(2), catchError(this.handleError));
   }
 
   getProductById(id: any): Observable<any> {
     return this.http
-      .get(`${this.base_Url}/products/${id}`)
+      .get(`${this.base_Url_Product_Service}/products/${id}`)
       .pipe(retry(2), catchError(this.handleError));
   }
 
@@ -49,19 +51,19 @@ export class ProductService {
     const user = this.authService.getUser();
     
     return this.http
-      .get(`${this.base_Url}/products/company/${user?.id}`)
+      .get(`${this.base_Url_Product_Service}/products/company/${user?.id}`)
       .pipe(retry(2), catchError(this.handleError));
   }
 
   createProduct(item: any) {
     return this.http
-      .post(`${this.base_Url}/products/post`, JSON.stringify(item), this.httpOptions)
+      .post(`${this.base_Url_Product_Service}/products/post`, JSON.stringify(item), this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
 
   updateProduct(id: any, item: any) {
     return this.http
-      .put(`${this.base_Url}/products/${id}`, JSON.stringify(item), this.httpOptions)
+      .put(`${this.base_Url_Product_Service}/products/${id}`, JSON.stringify(item), this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
 

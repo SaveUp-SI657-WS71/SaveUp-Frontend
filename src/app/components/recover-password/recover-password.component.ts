@@ -41,6 +41,7 @@ export class RecoverPasswordComponent {
 
               } else {
                 alert("El correo ingresado no existe");
+
               }
             }
           )
