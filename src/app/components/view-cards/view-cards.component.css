@@ -10,6 +10,8 @@
   flex-basis: calc(50% - 20px);
   margin: 10px;
   text-align: center;
+  border: 2px solid #ff0000; /* Grosor de 2px, estilo sólido, color rojo */
+
 }
 
 .example-card img {
