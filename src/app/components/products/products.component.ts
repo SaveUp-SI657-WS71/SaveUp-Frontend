@@ -40,6 +40,7 @@ export class ProductsComponent {
   }
 
   addToCart(product: any) {
+    console.log(product);
     this.cartService.getAllCarts().subscribe(
       (data: any) => {
         this.cartTemp = data.filter((cart: any) => cart.orderId === this.order?.id)

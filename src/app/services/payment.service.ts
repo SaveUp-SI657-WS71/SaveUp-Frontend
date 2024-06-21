@@ -9,6 +9,7 @@ import { AuthService } from './auth-service/auth.service';
 })
 export class PaymentService {
   base_Url:string=environment.baseURL;
+  base_Url_Payment_Service:string=environment.baseURLOrderService;
 
   constructor(private http: HttpClient, private authService: AuthService) { }
 
@@ -36,14 +37,14 @@ export class PaymentService {
   /*
   getCustomers(): Observable<any> {
     return this.http
-      .get(`${this.base_Url}/customers`)
+      .get(`${this.base_Url_Payment_Service}/customers`)
       .pipe(retry(2), catchError(this.handleError));
   }
   */
 
   getPayById(id: any): Observable<any> {
     return this.http
-      .get(`${this.base_Url}/pays/${id}`)
+      .get(`${this.base_Url_Payment_Service}/pays/${id}`)
       .pipe(retry(2), catchError(this.handleError));
   }
 
@@ -51,11 +52,11 @@ export class PaymentService {
     const item: any = {
       customerName: this.authService.getUser()?.name,
       customerLastName: this.authService.getUser()?.lastName,
-      phoneNumber: this.authService.getUser()?.phoneNumber,
+      phoneNumber: this.authService.getUser()?.phoneNumber
     }
 
     return this.http
-      .post(`${this.base_Url}/pays`, JSON.stringify(item), this.httpOptions)
+      .post(`${this.base_Url_Payment_Service}/pays`, JSON.stringify(item), this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
 
@@ -63,7 +64,7 @@ export class PaymentService {
     const pay_id = this.authService.getOrder()?.payId;
 
     return this.http
-      .put(`${this.base_Url}/pays/${pay_id}`, JSON.stringify(item), this.httpOptions)
+      .put(`${this.base_Url_Payment_Service}/pays/${pay_id}`, JSON.stringify(item), this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
 
@@ -71,13 +72,13 @@ export class PaymentService {
     const pay_id = this.authService.getOrder()?.payId;
 
     return this.http
-    .put(`${this.base_Url}/pays/${pay_id}/amount`, JSON.stringify(item), this.httpOptions)
+    .put(`${this.base_Url_Payment_Service}/pays/${pay_id}/amount`, JSON.stringify(item), this.httpOptions)
     .pipe(retry(2), catchError(this.handleError));
   }
 
   deletePayment(id: any) {
     return this.http
-      .delete(`${this.base_Url}/pays/${id}`)
+      .delete(`${this.base_Url_Payment_Service}/pays/${id}`)
       .pipe(retry(2), catchError(this.handleError));
   }
 }

@@ -48,7 +48,7 @@ export class LoginSessionComponent {
       (customer: any) => {
         if (customer) {
           this.authService.setUser(customer);
-
+          
           this.paymentService.createPayment().subscribe(
             (payment: any) => {
               this.orderService.createOrder(payment.id).subscribe(
