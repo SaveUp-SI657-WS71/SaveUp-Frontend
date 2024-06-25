@@ -69,7 +69,7 @@ export class ProductService {
 
   updateProductStock(id: any, item: any) {
     return this.http
-      .put(`${this.base_Url}/products/${id}/stock`, JSON.stringify(item), this.httpOptions)
+      .put(`${this.base_Url_Product_Service}/products/${id}/stock`, JSON.stringify(item), this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
 }

@@ -9,6 +9,7 @@ import { AuthService } from './auth-service/auth.service';
 })
 export class OrderService {
   base_Url:string=environment.baseURL;
+  base_Url_ORDER_Service:string=environment.baseURLOrderService;
 
   constructor(private http: HttpClient, private authService: AuthService) { }
 
@@ -36,7 +37,7 @@ export class OrderService {
   /*
   getCustomers(): Observable<any> {
     return this.http
-      .get(`${this.base_Url}/customers`)
+      .get(`${this.base_Url_ORDER_Service}/customers`)
       .pipe(retry(2), catchError(this.handleError));
   }
   */
@@ -47,13 +48,13 @@ export class OrderService {
     }
 
     return this.http
-      .post(`${this.base_Url}/orders`, JSON.stringify(item), this.httpOptions)
+      .post(`${this.base_Url_ORDER_Service}/orders`, JSON.stringify(item), this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
 
   deleteOrder(id: any) {
     return this.http
-      .delete(`${this.base_Url}/orders/${id}`)
+      .delete(`${this.base_Url_ORDER_Service}/orders/${id}`)
       .pipe(retry(2), catchError(this.handleError));
   }
 }

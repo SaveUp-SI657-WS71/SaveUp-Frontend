@@ -9,6 +9,7 @@ import { AuthService } from './auth-service/auth.service';
 })
 export class CardService {
   base_Url:string=environment.baseURL;
+  base_Url_Card_Service:string=environment.baseURLCardService;
 
   constructor(private http: HttpClient, private authService: AuthService) { }
 
@@ -37,13 +38,13 @@ export class CardService {
     const user = this.authService.getUser();
 
     return this.http
-      .get(`${this.base_Url}/cards/customer/${user?.id}`)
+      .get(`${this.base_Url_Card_Service}/cards/customer/${user?.id}`)
       .pipe(retry(2), catchError(this.handleError));
   }
 
   createCard(item: any) {
     return this.http
-      .post(`${this.base_Url}/cards`, JSON.stringify(item), this.httpOptions)
+      .post(`${this.base_Url_Card_Service}/cards`, JSON.stringify(item), this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
 }

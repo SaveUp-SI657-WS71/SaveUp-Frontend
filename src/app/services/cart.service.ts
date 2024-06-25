@@ -10,6 +10,8 @@ import { AuthService } from './auth-service/auth.service';
 export class CartService {
   base_Url:string=environment.baseURL;
 
+  base_Url_Order_Service:string=environment.baseURLOrderService;
+
   constructor(private http: HttpClient, private authService: AuthService) { }
 
   httpOptions = {
@@ -36,14 +38,20 @@ export class CartService {
   /*
   getCustomers(): Observable<any> {
     return this.http
-      .get(`${this.base_Url}/customers`)
+      .get(`${this.base_Url_Order_Service}/customers`)
       .pipe(retry(2), catchError(this.handleError));
   }
   */
 
+  createCart(item: any) {
+    return this.http
+      .post(`${this.base_Url_Order_Service}/carts`, JSON.stringify(item), this.httpOptions)
+      .pipe(retry(2), catchError(this.handleError));
+  }
+
   getAllCarts(): Observable<any> {
     return this.http
-      .get(`${this.base_Url}/carts`)
+      .get(`${this.base_Url_Order_Service}/carts`)
       .pipe(retry(2), catchError(this.handleError));
   }
 
@@ -52,9 +60,10 @@ export class CartService {
       productId: product_id,
       orderId: this.authService.getOrder()?.id
     };
+    console.log(item);
 
     return this.http
-      .post(`${this.base_Url}/carts`, item, this.httpOptions)
+      .post(`${this.base_Url_Order_Service}/carts`, item, this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
 
@@ -62,7 +71,7 @@ export class CartService {
     const order_id = this.authService.getOrder()?.id;
 
     return this.http
-      .get(`${this.base_Url}/cart/order/${order_id}`)
+      .get(`${this.base_Url_Order_Service}/cart/order/${order_id}`)
       .pipe(retry(2), catchError(this.handleError));
   }
 
@@ -70,13 +79,13 @@ export class CartService {
     const order_id = this.authService.getOrder()?.id;
 
     return this.http
-      .delete(`${this.base_Url}/carts/${order_id}/${product_id}`)
+      .delete(`${this.base_Url_Order_Service}/carts/${order_id}/${product_id}`)
       .pipe(retry(2), catchError(this.handleError));
   }
 
   deleteAllCartsByOrderId(order_id: any) {
     return this.http
-      .delete(`${this.base_Url}/carts/order/${order_id}`)
+      .delete(`${this.base_Url_Order_Service}/carts/order/${order_id}`)
       .pipe(retry(2), catchError(this.handleError));
   }
 }
