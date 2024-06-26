@@ -28,7 +28,7 @@
         <mat-icon class="color-icon" aria-hidden="false" aria-label="Profile icon" fontIcon="person"></mat-icon>
         <span> Perfil </span>
     </button>
-    <button mat-button class="boton" color="basic" aria-label="Button to redirect to the records section" (click)="clickHistorial()">
+    <button  *ngIf="!authService.getUser()?.ruc" mat-button class="boton" color="basic" aria-label="Button to redirect to the records section" (click)="clickHistorial()">
         <mat-icon class="color-icon" aria-hidden="false" aria-label="History icon" fontIcon="assignment"></mat-icon>
         <span> Historial </span>
     </button>
