@@ -79,9 +79,10 @@ export class CarritoComponent implements OnInit{
   }
 
   removeProduct(product: any) {
+    console.log(product);
     const newStock = product.stock + 1;
 
-    this.productService.updateProductStock(product.id, newStock).subscribe(
+    this.productService.updateProductStock(product.product_id, newStock).subscribe(
       (data: any) => {
         console.log(data);
       },
@@ -90,7 +91,7 @@ export class CarritoComponent implements OnInit{
       }
     );
 
-    this.cartService.deleteCartByOrderAndProduct(product.id).subscribe(
+    this.cartService.deleteCartByOrderAndProduct(product.product_id).subscribe(
       (data: any) => {
         console.log(data);
       },
