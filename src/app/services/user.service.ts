@@ -115,7 +115,7 @@ export class UserService {
     const user = this.authService.getUser();
 
     return this.http
-      .get(`${this.base_Url}/purchase/${user?.id}/data`)
+      .get(`${this.base_Url_User_Service}/purchase/${user?.id}/data`)
       .pipe(retry(2), catchError(this.handleError));
   }
 
@@ -123,14 +123,14 @@ export class UserService {
     const user = this.authService.getUser();
 
     return this.http
-      .get(`${this.base_Url}/sale/${user?.id}/data`)
+      .get(`${this.base_Url_User_Service}/sale/${user?.id}/data`)
       .pipe(retry(2), catchError(this.handleError));
   }
 
   updateCustomerPoints(item: any) {
     const user = this.authService.getUser();
 
-    return this.http.put(`${this.base_Url}/customers/${user?.id}/points`, item, this.httpOptions)
+    return this.http.put(`${this.base_Url_User_Service}/customers/${user?.id}/points`, item, this.httpOptions)
     .pipe(retry(2), catchError(this.handleError));
   }
 }

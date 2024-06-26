@@ -56,6 +56,8 @@ export class CartService {
   }
 
   createOrderWithProduct(product_id: any) {
+    console.log(product_id);
+    console.log(this.authService.getOrder()?.id);
     const item = {
       productId: product_id,
       orderId: this.authService.getOrder()?.id

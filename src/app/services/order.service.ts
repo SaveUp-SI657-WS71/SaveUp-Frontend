@@ -44,9 +44,9 @@ export class OrderService {
 
   createOrder(id: any) {
     const item = {
-      "payId": id
+      payId: id
     }
-
+    console.log(id)
     return this.http
       .post(`${this.base_Url_ORDER_Service}/orders`, JSON.stringify(item), this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));

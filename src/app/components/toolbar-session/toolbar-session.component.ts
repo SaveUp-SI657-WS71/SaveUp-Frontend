@@ -12,7 +12,7 @@ export class ToolbarSessionComponent implements OnInit {
   isMenuOpen: boolean = false; // Propiedad para controlar la apertura y cierre del menú
   isScreenSmall: boolean = false; // Propiedad para verificar si la pantalla es pequeña
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(public authService: AuthService, private router: Router) { }
 
   ngOnInit() {
     this.checkScreenSize();
@@ -86,9 +86,9 @@ export class ToolbarSessionComponent implements OnInit {
     const user = this.authService.getUser();
 
     if(user?.lastName) {
-      this.router.navigate(['/close/session']);
+      this.router.navigate(['/']);
     } else if (user?.ruc) {
-      this.router.navigate(['/close/session']);
+      this.router.navigate(['/']);
     }
   }
 }
